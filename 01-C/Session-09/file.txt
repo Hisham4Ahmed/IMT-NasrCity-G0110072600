@@ -1,0 +1,13 @@
+gcc -E file.c -o file.i  -> After preprocessor phase 
+gcc -S file.c -o file.asm -> After Compiler phase  
+gcc -C file.c -o file.o -> after Assembler phase  
+gcc  file.c -o file.exe ->  after Linker phase
+
+
+
+------------------------------------------
+#if #endif 
+#elif #else 
+
+#warning 
+#error 
