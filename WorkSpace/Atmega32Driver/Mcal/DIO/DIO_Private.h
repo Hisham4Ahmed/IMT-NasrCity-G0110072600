@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#ifndef _DIO_PRIVATE_H_
-#define _DIO_PRIVATE_H_
+#ifndef DIO_PRIVATE
+#define DIO_PRIVATE
 
 
 typedef enum 
@@ -53,5 +53,5 @@ typedef enum
 
 
 
-#endif 
+#endif /* DIO_PRIVATE */
 

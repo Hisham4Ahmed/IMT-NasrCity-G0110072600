@@ -5,8 +5,8 @@
  *      Author: hesham
  */
 
-#ifndef MCAL_ATMEGA32REGISTERS_H_
-#define MCAL_ATMEGA32REGISTERS_H_
+#ifndef ATMEGA32REGISTERS
+#define ATMEGA32REGISTERS
 #include <stdint.h>
 #define DDRA_Reg    *((volatile uint8_t*)0x3A)
 #define PORTA_Reg   *((volatile uint8_t*)0x3B)
@@ -25,4 +25,4 @@
 #define PIND_Reg    *((volatile uint8_t*)0x30)
 
 
-#endif /* MCAL_ATMEGA32REGISTERS_H_ */
+#endif /* ATMEGA32REGISTERS */

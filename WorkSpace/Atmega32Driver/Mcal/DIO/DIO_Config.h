@@ -9,12 +9,12 @@
  * 
  */
 
-#ifndef _DIO_CONFIG_H_
-#define _DIO_CONFIG_H_
+#ifndef DIO_CONFIG
+#define DIO_CONFIG
 
 
 
 
 
 
-#endif 
+#endif /* DIO_CONFIG */

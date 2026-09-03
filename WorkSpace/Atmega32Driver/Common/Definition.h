@@ -5,8 +5,8 @@
  *      Author: hesham
  */
 
-#ifndef COMMON_DEFINITION_H_
-#define COMMON_DEFINITION_H_
+#ifndef DEFINITION
+#define DEFINITION
 
 
 #define NULL         (void*)0
@@ -14,4 +14,4 @@
 
 
 
-#endif /* COMMON_DEFINITION_H_ */
+#endif /* DEFINITION */
