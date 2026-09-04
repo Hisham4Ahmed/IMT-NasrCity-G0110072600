@@ -1,9 +1,15 @@
 Archive member included to satisfy reference by file (symbol)
 
+/usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
+                              /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o (__divmodsi4)
+/usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
+                              /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o) (__negsi2)
 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
                               /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o (exit)
 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
-                              /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o (__do_copy_data)
+                              /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o (__do_copy_data)
+/usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+                              /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o) (__udivmodsi4)
 
 Memory Configuration
 
@@ -21,6 +27,7 @@ Linker script and memory map
 
 LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o
 LOAD /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
+LOAD /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
 LOAD /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
 LOAD /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
 LOAD /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
@@ -132,7 +139,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x5dc
+.text           0x0000000000000000      0xa94
  *(.vectors)
  .vectors       0x0000000000000000       0x54 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o
                 0x0000000000000000                __vectors
@@ -211,68 +218,118 @@ END GROUP
                 0x000000000000007e                __vector_18
                 0x000000000000007e                __vector_20
  .text          0x0000000000000082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
- .text          0x0000000000000082      0x148 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
-                0x0000000000000082                LCD_SendCommand
-                0x00000000000000c4                LCD_Init
-                0x0000000000000138                LCD_WriteCharacter
-                0x000000000000017a                LCD_WriteString
-                0x00000000000001aa                LCD_MoveTo
- .text          0x00000000000001ca       0x70 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
-                0x00000000000001ca                Led_Init
-                0x00000000000001d0                Led_On
-                0x0000000000000222                Led_Off
-                0x0000000000000236                Led_Toggle
- .text          0x000000000000023a       0x44 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
-                0x000000000000023a                SSD_Init
-                0x0000000000000252                SSD_DisplayNo
- .text          0x000000000000027e      0x33c /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Mcal/DIO/DIO_Program.c.o
-                0x000000000000027e                DIO_DirectionSelectForPin
-                0x0000000000000366                DIO_DirectionSelectForGroup
-                0x000000000000038c                DIO_WriteForGroup
-                0x00000000000003b2                DIO_WriteForPin
-                0x0000000000000498                DIO_ReadInputForPin
-                0x00000000000004da                DIO_ReadInputForGroup
-                0x0000000000000516                DIO_ToggleForPin
-                0x0000000000000580                DIO_ToggleForGroup
-                0x00000000000005b6                DIO_InternalPullUpControl
- .text          0x00000000000005ba        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
- .text          0x00000000000005ba        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
- .text          0x00000000000005ba        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
-                0x00000000000005ba                . = ALIGN (0x2)
+ .text          0x0000000000000082      0x28a /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
+                0x0000000000000082                KPD_Init
+                0x000000000000017e                KPD_GetKPDValue
+ .text          0x000000000000030c      0x2d0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
+                0x000000000000030c                LCD_SendCommand
+                0x000000000000034e                LCD_Init
+                0x00000000000003c2                LCD_WriteCharacter
+                0x0000000000000404                LCD_WriteString
+                0x0000000000000434                LCD_MoveTo
+                0x0000000000000454                LCD_StoreSpecialCharacter
+                0x000000000000049e                LCD_WriteNumber
+ .text          0x00000000000005dc       0x70 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
+                0x00000000000005dc                Led_Init
+                0x00000000000005e2                Led_On
+                0x0000000000000634                Led_Off
+                0x0000000000000648                Led_Toggle
+ .text          0x000000000000064c       0x44 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
+                0x000000000000064c                SSD_Init
+                0x0000000000000664                SSD_DisplayNo
+ .text          0x0000000000000690      0x33c /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Mcal/DIO/DIO_Program.c.o
+                0x0000000000000690                DIO_DirectionSelectForPin
+                0x0000000000000778                DIO_DirectionSelectForGroup
+                0x000000000000079e                DIO_WriteForGroup
+                0x00000000000007c4                DIO_WriteForPin
+                0x00000000000008aa                DIO_ReadInputForPin
+                0x00000000000008ec                DIO_ReadInputForGroup
+                0x0000000000000928                DIO_ToggleForPin
+                0x0000000000000992                DIO_ToggleForGroup
+                0x00000000000009c8                DIO_InternalPullUpControl
+ .text          0x00000000000009cc        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
+ .text          0x00000000000009cc        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
+ .text          0x00000000000009cc        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
+ .text          0x00000000000009cc        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text          0x00000000000009cc        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text          0x00000000000009cc        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+                0x00000000000009cc                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00000000000005ba       0x1e /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
-                0x00000000000005ba                main
+ .text.startup  0x00000000000009cc       0x42 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
+                0x00000000000009cc                main
  .text.libgcc.mul
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a0e        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.div
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
- .text.libgcc   0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a0e       0x2e /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
+                0x0000000000000a0e                __divmodsi4
+ .text.libgcc   0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.prologue
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.builtins
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.fmul
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.fixed
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
  .text.libgcc.mul
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000000a3c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .text.libgcc.div
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000000a3c       0x10 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
+                0x0000000000000a3c                __negsi2
+ .text.libgcc   0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .text.libgcc.prologue
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .text.libgcc.builtins
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .text.libgcc.fmul
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .text.libgcc.fixed
-                0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
-                0x00000000000005d8                . = ALIGN (0x2)
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
+ .text.libgcc.mul
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000a4c        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.div
+                0x0000000000000a4c       0x44 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+                0x0000000000000a4c                __udivmodsi4
+ .text.libgcc   0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.prologue
+                0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.builtins
+                0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fmul
+                0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+ .text.libgcc.fixed
+                0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
+                0x0000000000000a90                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000005d8        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
-                0x00000000000005d8                exit
-                0x00000000000005d8                _exit
+ .fini9         0x0000000000000a90        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+                0x0000000000000a90                exit
+                0x0000000000000a90                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -291,58 +348,66 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000005d8        0x4 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .fini0         0x0000000000000a90        0x4 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000005dc                _etext = .
+                0x0000000000000a94                _etext = .
 
-.data           0x0000000000800060       0x14 load address 0x00000000000005dc
+.data           0x0000000000800060       0x22 load address 0x0000000000000a94
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
+ .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Mcal/DIO/DIO_Program.c.o
  .data          0x0000000000800060        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
  *(.data*)
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x0000000000800060        0xa /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
+ .rodata        0x0000000000800060       0x10 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
+ .rodata        0x0000000000800070        0xa /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
  *(.rodata*)
  .rodata.str1.1
-                0x000000000080006a        0x9 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
+                0x000000000080007a        0x8 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
  *(.gnu.linkonce.r*)
-                0x0000000000800074                . = ALIGN (0x2)
- *fill*         0x0000000000800073        0x1 
-                0x0000000000800074                _edata = .
-                0x0000000000800074                PROVIDE (__data_end, .)
+                0x0000000000800082                . = ALIGN (0x2)
+                0x0000000000800082                _edata = .
+                0x0000000000800082                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800074        0x0
+.bss            0x0000000000800082        0x0
                 [!provide]                        PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0000000000800074        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Mcal/DIO/DIO_Program.c.o
- .bss           0x0000000000800074        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
- .bss           0x0000000000800074        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
- .bss           0x0000000000800074        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avr5/crtatmega32.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Mcal/DIO/DIO_Program.c.o
+ .bss           0x0000000000800082        0x0 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/main.c.o
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_divmodsi4.o)
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_negsi2.o)
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_exit.o)
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800082        0x0 /usr/lib/gcc/avr/7.3.0/avr5/libgcc.a(_udivmodsi4.o)
  *(.bss*)
  *(COMMON)
                 [!provide]                        PROVIDE (__bss_end, .)
-                0x00000000000005dc                __data_load_start = LOADADDR (.data)
-                0x00000000000005f0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000000a94                __data_load_start = LOADADDR (.data)
+                0x0000000000000ab6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800074        0x0
+.noinit         0x0000000000800082        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end, .)
-                0x0000000000800074                _end = .
+                0x0000000000800082                _end = .
                 [!provide]                        PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
@@ -386,6 +451,7 @@ END GROUP
  *(.comment)
  .comment       0x0000000000000000       0x11 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/App/App1/App.c.o
                                          0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/KPD/KPD_Program.c.o
  .comment       0x0000000000000011       0x12 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/LCD/LCD_Program.c.o
  .comment       0x0000000000000011       0x12 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/Led/Led_Program.c.o
  .comment       0x0000000000000011       0x12 /home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/Hal/SevSeg/SevSeg_Program.c.o
@@ -463,5 +529,5 @@ END GROUP
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/LcdTest.elf elf32-avr)
+OUTPUT(/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/release/KPDTest.elf elf32-avr)
 LOAD linker stubs

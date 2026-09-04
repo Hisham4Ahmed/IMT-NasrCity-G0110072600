@@ -1,3 +1,13 @@
+/**
+ * @file LCD_Config.h
+ * @author Hesham Ahmed (Hisham4Ahmed@gmail.com)
+ * @brief  
+ * @version 0.1
+ * @date 2026-09-03
+ * @note 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #ifndef LCD_CONFIG
 #define LCD_CONFIG
 #include "../../Mcal/DIO/DIO_Interface.h"
@@ -27,15 +37,33 @@
     #define D7Group      DIO_GroupC
 #else 
     #error "Invaild Lcd Mode"
-#endif /*LCDMode*/    
-// 0 0 1 DL N F 0 0 
-// 0 0 1 1  1 0 0 0
-#define Lcd_FunctionSet  0x38
+#endif 
 
-#define Lcd_DisplayOnOff   Lcd_DisplayOn
-#define Lcd_Clear 0x01 
-// 000001 I/D SH
-// 000001  1  0 
-#define Lcd_EntryMode  0x06
+/**
+ * Lcd_4Bit2Line5x8F 
+ * Lcd_4Bit2Line5x11F
+ * Lcd_4Bit1Line5x8F 
+ * Lcd_4Bit1Line5x11F
+ * Lcd_8Bit2Line5x8F 
+ * Lcd_8Bit2Line5x11F
+ * Lcd_8Bit1Line5x8F 
+ * Lcd_8Bit1Line5x11F
+ */
+#define Lcd_FunctionSet  Lcd_8Bit2Line5x8F
+
+/**
+ * Lcd_DisplayOff                
+ * Lcd_DisplayOnCursorOff        
+ * Lcd_DisplayOnCursorOnBlinkOff 
+ * Lcd_DisplayOnCursorOnBlinkOn  
+ */
+#define Lcd_DisplayOnOff   Lcd_DisplayOnCursorOff
+/**
+ * Lcd_EntryMode_DecNoShift
+ * Lcd_EntryMode_DecShift  
+ * Lcd_EntryMode_IncNoShift
+ * Lcd_EntryMode_IncShift  
+ */
+#define Lcd_EntryMode  Lcd_EntryMode_IncNoShift
 
 #endif /* LCD_CONFIG */

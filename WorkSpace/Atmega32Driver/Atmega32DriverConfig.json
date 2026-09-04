@@ -2,7 +2,7 @@
   "projectName": "Atmega32Driver",
   "projectPath": "/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver",
   "outputPath": "/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver",
-  "outputName": "LcdTest",
+  "outputName": "KPDTest",
   "target": "AVR",
   "mcu": "atmega32",
   "language": "C",
@@ -25,6 +25,6 @@
   "port": "",
   "baudRate": "115200",
   "timeout": "5000",
-  "firmwareFile": "/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/LcdTest.hex",
+  "firmwareFile": "/home/hesham/Desktop/IMT/NasrCity/NasrCityGroup/WorkSpace/Atmega32Driver/KPDTest.hex",
   "programmer": "usbasp"
 }

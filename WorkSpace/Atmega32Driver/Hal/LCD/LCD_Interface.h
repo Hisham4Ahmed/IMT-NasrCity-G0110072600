@@ -1,10 +1,23 @@
+/**
+ * @file LCD_Interface.h
+ * @author Hesham Ahmed (Hisham4Ahmed@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2026-09-03
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #ifndef LCD_INTERFACE
 #define LCD_INTERFACE
+
 #include <stdint.h>
 #include "../../Mcal/DIO/DIO_Interface.h"
 
 #include "LCD_Private.h"
 #include "LCD_Config.h"
+
+
 
 void LCD_Init();
 void LCD_SendCommand(uint8_t Command);

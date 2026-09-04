@@ -8,14 +8,30 @@
 #include "Mcal/DIO/DIO_Interface.h"
 #include "Hal/Led/Led_Interface.h"
 #include "Hal/LCD/LCD_Interface.h"
+#include "Hal/KPD/KPD_Interface.h"
 void main()
 {
-LCD_Init();
-// LCD_WriteCharacter('H');
-LCD_WriteString("Omar");
-LCD_MoveTo(Lcd_Line2,5);
-LCD_WriteString("IMT");
-while(1);
+    KPD_Init();
+    LCD_Init();
+    LCD_WriteString("Welcome");
+    _delay_ms(1000);
+    uint8_t BtnValue = 0;
+    while(1)
+    {
+        KPD_GetKPDValue(&BtnValue);
+
+        if(BtnValue!=0xFF)
+        {
+            LCD_WriteCharacter(BtnValue);
+
+        }
+        // else
+        // {
+        //     LCD_MoveTo(Lcd_Line1,1);
+        //     LCD_WriteString("              ");
+        // }
+
+    }
 	
 }
 

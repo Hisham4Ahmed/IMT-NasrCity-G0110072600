@@ -1,3 +1,13 @@
+/**
+ * @file LCD_Program.c
+ * @author Hesham Ahmed (Hisham4Ahmed@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2026-09-03
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #include "LCD_Interface.h"
 #include <util/delay.h>
 
@@ -20,7 +30,7 @@ void LCD_Init()
         // 5- wait for 1msec
              _delay_ms(1);
         // 6- Sent Clear  
-            LCD_SendCommand(Lcd_Clear);
+            LCD_SendCommand(Lcd_ClearScreen);
         // 7- wait for 2msec
              _delay_ms(2);
         // 8- Entry Mode sent 
@@ -84,7 +94,7 @@ void LCD_WriteString(uint8_t *String)
         }
     }
 }
-void LCD_WriteNumber(int32_t Number);
+
 void LCD_MoveTo(uint8_t Line, uint8_t Digit)
 {
     uint8_t DDRAM_Address = 0 ;
@@ -94,6 +104,49 @@ void LCD_MoveTo(uint8_t Line, uint8_t Digit)
         case Lcd_Line2: DDRAM_Address = Lcd_Line2Address+Digit;break;
         default:break;
     }
-    LCD_SendCommand(0x80|DDRAM_Address);
+    LCD_SendCommand(Lcd_SetDDRAMCommand|DDRAM_Address);
 }
-void LCD_StoreSpecialCharacter(uint8_t * SpecialCharacter , uint8_t Location);
+void LCD_StoreSpecialCharacter(uint8_t * SpecialCharacter , uint8_t Location)
+{
+    if(SpecialCharacter==NULL||Location>Lcd_CGRAMMaxLocation)
+    {
+        return ; 
+    }
+
+    uint8_t LocationAddress = Location*Lcd_CGRAMMaxSizeofLocation;
+    LCD_SendCommand(Lcd_SetCGRAMCommand|LocationAddress);
+    uint8_t counter = 0 ;
+    for(counter=0;counter<Lcd_CGRAMMaxSizeofLocation;counter++)
+    {
+        LCD_WriteCharacter(SpecialCharacter[counter]);
+    }
+    LCD_MoveTo(Lcd_Line1,0);
+
+}
+void LCD_WriteNumber(int32_t Number)
+{
+    uint8_t NumberDigits[10]={0};
+    uint8_t Index = 0 ;
+    int8_t Counter = 0 ;
+    if(Number==0)
+    {
+        LCD_WriteCharacter('0');
+        return ;
+    }
+    if(Number<0)
+    {
+       LCD_WriteCharacter('-');
+       Number = Number * -1 ; 
+    }
+    while(Number!=0)
+    {
+        // spreted Numbers 
+        NumberDigits[Index] = (Number %10)+'0';
+        Number=Number/10;
+        Index++;
+    }
+    for(Counter=Index-1;Counter>=0;Counter--)
+    {
+        LCD_WriteCharacter(NumberDigits[Counter]);
+    }
+}
