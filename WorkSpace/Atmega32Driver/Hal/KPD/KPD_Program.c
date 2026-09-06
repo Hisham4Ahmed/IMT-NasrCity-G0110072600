@@ -62,3 +62,14 @@ void KPD_GetKPDValue(uint8_t *KPD_Value)
         DIO_WriteForPin(KPD_ColGroups[C],KPD_ColPins[C],DIO_High);
     }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -9,28 +9,39 @@
 #include "Hal/Led/Led_Interface.h"
 #include "Hal/LCD/LCD_Interface.h"
 #include "Hal/KPD/KPD_Interface.h"
+#include "Hal/DcMotor/DcMotor_Interface.h"
 void main()
 {
-    KPD_Init();
-    LCD_Init();
-    LCD_WriteString("Welcome");
-    _delay_ms(1000);
-    uint8_t BtnValue = 0;
+    Dc_config_t MyMotor1 = 
+    {
+        .ConnectionType = Dc_WithoutHBridge,
+        .Dc_M1Group = DIO_GroupA,
+        .Dc_M1Pin =DIO_Pin0,
+    };
+    Dc_config_t MyMotor2 = 
+    {
+        .ConnectionType = Dc_WithHBridge,
+        .Dc_M1Group = DIO_GroupD,
+        .Dc_M1Pin =DIO_Pin0,
+        .Dc_M2Group = DIO_GroupC,
+        .Dc_M2Pin =DIO_Pin6,
+    };
+    DC_Init(&MyMotor1);
+    DC_Init(&MyMotor2);
     while(1)
     {
-        KPD_GetKPDValue(&BtnValue);
-
-        if(BtnValue!=0xFF)
-        {
-            LCD_WriteCharacter(BtnValue);
-
-        }
-        // else
-        // {
-        //     LCD_MoveTo(Lcd_Line1,1);
-        //     LCD_WriteString("              ");
-        // }
-
+        DC_On(&MyMotor1);
+        DC_OnCW(&MyMotor2);
+        _delay_ms(5000);
+        DC_Off(&MyMotor1);
+        DC_Off(&MyMotor2);
+        _delay_ms(5000);
+        DC_On(&MyMotor1);
+        DC_OnCCW(&MyMotor2);
+        _delay_ms(5000);
+        DC_Off(&MyMotor1);
+        DC_Off(&MyMotor2);
+        _delay_ms(5000);
     }
 	
 }
