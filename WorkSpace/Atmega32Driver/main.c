@@ -1,8 +1,12 @@
-/*
- * main.c
- *
- *  Created on: Aug 22, 2026
- *      Author: hesham
+/**
+ * @file main.c
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2026-09-09
+ * 
+ * @copyright Copyright (c) 2026
+ * 
  */
 #include <util/delay.h>
 #include "Mcal/DIO/DIO_Interface.h"
