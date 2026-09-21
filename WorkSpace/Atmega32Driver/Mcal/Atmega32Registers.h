@@ -1,12 +1,20 @@
-/*
- * Atmega32Registers.h
- *
- *  Created on: Aug 22, 2026
- *      Author: hesham
+/**
+ * @file    Atmega32Registers.h
+ * @brief   
+ * @details 
+ * @version {version}
+ * @date    {date}
+ * @copyright Copyright (c) {year} Gestell-Co. All rights reserved.
+ * @author your name (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2026-09-09
+ * 
+ * @copyright Copyright (c) 2026
+ * 
  */
-
-#ifndef ATMEGA32REGISTERS
-#define ATMEGA32REGISTERS
+#ifndef _MCAL_ATMEGA32REGISTERS_H
+#define _MCAL_ATMEGA32REGISTERS_H
 #include <stdint.h>
 #define DDRA_Reg    *((volatile uint8_t*)0x3A)
 #define PORTA_Reg   *((volatile uint8_t*)0x3B)
@@ -24,5 +32,11 @@
 #define PORTD_Reg   *((volatile uint8_t*)0x32)
 #define PIND_Reg    *((volatile uint8_t*)0x30)
 
+#define SREG_Reg    *((volatile uint8_t*)0x5F)
 
-#endif /* ATMEGA32REGISTERS */
+#define MCUCR_Reg    *((volatile uint8_t*)0x55)
+#define MCUCSR_Reg   *((volatile uint8_t*)0x54)
+#define GICR_Reg     *((volatile uint8_t*)0x5B)
+#define GIFR_Reg     *((volatile uint8_t*)0x5A)
+
+#endif// _MCAL_ATMEGA32REGISTERS_H

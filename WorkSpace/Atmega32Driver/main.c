@@ -1,54 +1,40 @@
 /**
  * @file main.c
- * @author your name (you@domain.com)
  * @brief 
+ * @author Hisham Ahmed (Hisham.ah.hamed@gmail.com)
+ * @date 2026-09-19
  * @version 0.1
- * @date 2026-09-09
- * 
- * @copyright Copyright (c) 2026
- * 
+ * @copyright Copyright (c) 2026 Gestell. All rights reserved.
  */
 #include <util/delay.h>
-#include "Mcal/DIO/DIO_Interface.h"
 #include "Hal/Led/Led_Interface.h"
-#include "Hal/LCD/LCD_Interface.h"
-#include "Hal/KPD/KPD_Interface.h"
-#include "Hal/DcMotor/DcMotor_Interface.h"
-void main()
+#include "Mcal/EXTI/EXTI_Interface.h"
+#include "Mcal/GIE/GIE_Interface.h"
+void ButtonLedAPP(void);
+void main ()
 {
-    Dc_config_t MyMotor1 = 
-    {
-        .ConnectionType = Dc_WithoutHBridge,
-        .Dc_M1Group = DIO_GroupA,
-        .Dc_M1Pin =DIO_Pin0,
-    };
-    Dc_config_t MyMotor2 = 
-    {
-        .ConnectionType = Dc_WithHBridge,
-        .Dc_M1Group = DIO_GroupD,
-        .Dc_M1Pin =DIO_Pin0,
-        .Dc_M2Group = DIO_GroupC,
-        .Dc_M2Pin =DIO_Pin6,
-    };
-    DC_Init(&MyMotor1);
-    DC_Init(&MyMotor2);
+    //led Init
+    Led_Init(DIO_GroupA,DIO_Pin0);
+    Led_Init(DIO_GroupA,DIO_Pin4);
+    // Button Init
+    DIO_DirectionSelectForPin(DIO_GroupD,DIO_Pin2,DIO_Input);
+    DIO_InternalPullUpControl(DIO_GroupD,DIO_Pin2,Enable);
+    // EXTI Init
+    EXTI_Init(Exti0,Exti_Rising);
+    EXTI_CallBackFunction(Exti0,ButtonLedAPP);
+    EXTI_Enable(Exti0);
+    // GIE 
+    GIE_Enable();
     while(1)
     {
-        DC_On(&MyMotor1);
-        DC_OnCW(&MyMotor2);
-        _delay_ms(5000);
-        DC_Off(&MyMotor1);
-        DC_Off(&MyMotor2);
-        _delay_ms(5000);
-        DC_On(&MyMotor1);
-        DC_OnCCW(&MyMotor2);
-        _delay_ms(5000);
-        DC_Off(&MyMotor1);
-        DC_Off(&MyMotor2);
-        _delay_ms(5000);
+        Led_Toggle(DIO_GroupA,DIO_Pin0);
+        _delay_ms(4000);
     }
-	
+
 }
 
 
-
+void ButtonLedAPP(void)
+{
+    Led_Toggle(DIO_GroupA,DIO_Pin4);
+}
