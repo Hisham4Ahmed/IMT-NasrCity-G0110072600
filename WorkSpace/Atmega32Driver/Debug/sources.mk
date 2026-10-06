@@ -21,14 +21,18 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 App/App1 \
+Hal/Button \
+Hal/Buzzer \
 Hal/DcMotor \
 Hal/KPD \
 Hal/LCD \
 Hal/Led \
 Hal/SevSeg \
+Mcal/ADC \
 Mcal/DIO \
 Mcal/EXTI \
 Mcal/GIE \
+Mcal/Timer0 \
 . \
 release/App/App1 \
 release/Hal/DcMotor \

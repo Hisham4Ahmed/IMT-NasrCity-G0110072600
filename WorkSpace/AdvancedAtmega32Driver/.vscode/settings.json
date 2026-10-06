@@ -1,0 +1,5 @@
+{
+    "C_Cpp.doxygen.generatedStyle": "/**",
+    "C_Cpp.doxygen.generateOnCodeAction": true,
+    "doxdocgen.generic.commandSuggestionAddPrefix": true
+}

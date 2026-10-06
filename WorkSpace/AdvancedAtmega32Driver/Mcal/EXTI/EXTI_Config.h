@@ -1,0 +1,5 @@
+#ifndef _MCAL_EXTI_EXTI_CONFIG_H
+#define _MCAL_EXTI_EXTI_CONFIG_H
+
+
+#endif// _MCAL_EXTI_EXTI_CONFIG_H

@@ -16,8 +16,13 @@
 #ifndef _MCAL_ATMEGA32REGISTERS_H
 #define _MCAL_ATMEGA32REGISTERS_H
 #include <stdint.h>
-#define DDRA_Reg    *((volatile uint8_t*)0x3A)
-#define PORTA_Reg   *((volatile uint8_t*)0x3B)
+#define _SetAddress8bit(Addrress)   *((volatile uint8_t*)Addrress)
+#define _SetAddress16bit(Addrress)  *((volatile uint16_t*)Addrress)
+#define _SetAddress32bit(Addrress)  *((volatile uint32_t*)Addrress)
+
+
+#define DDRA_Reg    _SetAddress8bit(0x3A)
+#define PORTA_Reg   _SetAddress8bit(0x3B)
 #define PINA_Reg    *((volatile uint8_t*)0x39)
 
 #define DDRB_Reg    *((volatile uint8_t*)0x37)
@@ -38,5 +43,19 @@
 #define MCUCSR_Reg   *((volatile uint8_t*)0x54)
 #define GICR_Reg     *((volatile uint8_t*)0x5B)
 #define GIFR_Reg     *((volatile uint8_t*)0x5A)
+
+
+#define ADMUX_Reg    *((volatile uint8_t*)0x27)   
+#define ADCSRA_Reg   *((volatile uint8_t*)0x26)
+#define ADCH_Reg     *((volatile uint8_t*)0x25)
+#define ADCL_Reg     *((volatile uint8_t*)0x24)
+#define ADCData_Reg  *((volatile uint16_t*)0x24)
+#define SFIOR_Reg    *((volatile uint8_t*)0x50)
+
+#define TCCR0_Reg    *((volatile uint8_t*)0x53)
+#define TCNT0_Reg    *((volatile uint8_t*)0x52)
+#define OCR0_Reg     *((volatile uint8_t*)0x5C)
+#define TIMSk_Reg    *((volatile uint8_t*)0x59)
+#define TIFR_Reg     *((volatile uint8_t*)0x58)
 
 #endif// _MCAL_ATMEGA32REGISTERS_H

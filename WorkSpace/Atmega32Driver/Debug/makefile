@@ -16,14 +16,18 @@ RM := rm -rf
 -include release/Hal/DcMotor/subdir.mk
 -include release/App/App1/subdir.mk
 -include release/subdir.mk
+-include Mcal/Timer0/subdir.mk
 -include Mcal/GIE/subdir.mk
 -include Mcal/EXTI/subdir.mk
 -include Mcal/DIO/subdir.mk
+-include Mcal/ADC/subdir.mk
 -include Hal/SevSeg/subdir.mk
 -include Hal/Led/subdir.mk
 -include Hal/LCD/subdir.mk
 -include Hal/KPD/subdir.mk
 -include Hal/DcMotor/subdir.mk
+-include Hal/Buzzer/subdir.mk
+-include Hal/Button/subdir.mk
 -include App/App1/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -77,7 +81,7 @@ main-build: Atmega32Driver.elf secondary-outputs
 Atmega32Driver.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,Atmega32Driver.map -mmcu=atmega16 -o "Atmega32Driver.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,Atmega32Driver.map -mmcu=atmega32 -o "Atmega32Driver.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -95,7 +99,7 @@ Atmega32Driver.hex: Atmega32Driver.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 
 sizedummy: Atmega32Driver.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega16 Atmega32Driver.elf
+	-avr-size --format=avr --mcu=atmega32 Atmega32Driver.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
