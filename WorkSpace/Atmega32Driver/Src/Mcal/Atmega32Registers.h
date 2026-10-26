@@ -53,6 +53,14 @@
 #define TCNT2_Reg    _SetAddress8bit(0x44)
 #define OCR2_Reg     _SetAddress8bit(0x43)
 
+#define TCCR1A_Reg   _SetAddress8bit(0x4F)
+#define TCCR1B_Reg   _SetAddress8bit(0x4E)
+#define TCNT1_Reg    _SetAddress16bit(0x4C)
+#define OCR1A_Reg    _SetAddress16bit(0x4A)
+#define OCR1B_Reg    _SetAddress16bit(0x48)
+#define ICR1_Reg     _SetAddress16bit(0x46)
+
+
 #define TIMSk_Reg    _SetAddress8bit(0x59)
 #define TIFR_Reg     _SetAddress8bit(0x58)
 
